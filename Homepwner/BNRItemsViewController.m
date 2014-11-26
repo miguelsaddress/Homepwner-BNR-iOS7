@@ -59,7 +59,7 @@
     BNRItem* item = [[BNRItemStore sharedStore] createItem];
     NSInteger lastRowIndex = [[[BNRItemStore sharedStore] allItems] indexOfObject:item];
     NSIndexPath* indexPath = [NSIndexPath indexPathForItem:lastRowIndex inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
+    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
 }
 
 -(IBAction)toggleEditingMode:(UIButton*)sender {
