@@ -19,10 +19,6 @@
 //designated initializer
 -(instancetype) init {
     self = [super initWithStyle:UITableViewStylePlain];
-    for (int i = 0; i<5; i++) {
-        [[BNRItemStore sharedStore] createItem];
-    }
-
     return self;
 }
 
