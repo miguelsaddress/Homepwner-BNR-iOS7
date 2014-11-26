@@ -15,6 +15,7 @@
 		49D682EF1A2619D0002D0758 /* BNRItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D682EE1A2619D0002D0758 /* BNRItem.m */; };
 		49D682F21A261A35002D0758 /* BNRItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D682F11A261A35002D0758 /* BNRItemsViewController.m */; };
 		49D682F51A261DA1002D0758 /* BNRItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D682F41A261DA1002D0758 /* BNRItemStore.m */; };
+		49D682F91A264178002D0758 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49D682F81A264178002D0758 /* HeaderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		49D682F11A261A35002D0758 /* BNRItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRItemsViewController.m; sourceTree = "<group>"; };
 		49D682F31A261DA1002D0758 /* BNRItemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRItemStore.h; sourceTree = "<group>"; };
 		49D682F41A261DA1002D0758 /* BNRItemStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRItemStore.m; sourceTree = "<group>"; };
+		49D682F81A264178002D0758 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HeaderView.xib; path = ../HeaderView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 		49D682CC1A2619A7002D0758 /* Homepwner */ = {
 			isa = PBXGroup;
 			children = (
+				49D682F81A264178002D0758 /* HeaderView.xib */,
 				49D682ED1A2619D0002D0758 /* BNRItem.h */,
 				49D682EE1A2619D0002D0758 /* BNRItem.m */,
 				49D682F01A261A35002D0758 /* BNRItemsViewController.h */,
@@ -206,6 +209,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49D682F91A264178002D0758 /* HeaderView.xib in Resources */,
 				49D682D81A2619A8002D0758 /* LaunchScreen.xib in Resources */,
 				49D682D51A2619A8002D0758 /* Images.xcassets in Resources */,
 			);

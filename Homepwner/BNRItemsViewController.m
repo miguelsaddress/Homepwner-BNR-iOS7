@@ -10,6 +10,10 @@
 #import "BNRItemStore.h"
 #import "BNRItem.h"
 
+@interface BNRItemsViewController()
+@property(nonatomic, strong) IBOutlet UIView *headerView;
+@end
+
 @implementation BNRItemsViewController
 
 //designated initializer
@@ -30,6 +34,7 @@
     [super viewDidLoad];
     [self.tableView registerClass:[UITableViewCell class]
            forCellReuseIdentifier:@"UITableViewCell"];
+    self.tableView.tableHeaderView = self.headerView;
 }
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -43,4 +48,30 @@
     cell.textLabel.text = [item description];
     return cell;
 }
+
+-(UIView*) headerView {
+    if(!_headerView){
+       [[NSBundle mainBundle] loadNibNamed:@"HeaderView"
+                                      owner:self
+                                    options:nil];
+    }
+    
+    return _headerView;
+}
+
+-(IBAction)addItem:(id)sender{
+    NSLog(@"Add item pressed");
+}
+
+-(IBAction)toggleEditingMode:(UIButton*)sender {
+    if(self.tableView.isEditing){
+        [sender setTitle:@"Edit" forState:UIControlStateNormal];
+        [self.tableView setEditing:NO animated:YES];
+    }else{
+        [sender setTitle:@"Done" forState:UIControlStateNormal];
+        [self.tableView setEditing:YES animated:YES];
+    }
+
+}
+
 @end
