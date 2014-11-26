@@ -60,7 +60,10 @@
 }
 
 -(IBAction)addItem:(id)sender{
-    NSLog(@"Add item pressed");
+    BNRItem* item = [[BNRItemStore sharedStore] createItem];
+    NSInteger lastRowIndex = [[[BNRItemStore sharedStore] allItems] indexOfObject:item];
+    NSIndexPath* indexPath = [NSIndexPath indexPathForItem:lastRowIndex inSection:0];
+    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
 }
 
 -(IBAction)toggleEditingMode:(UIButton*)sender {
