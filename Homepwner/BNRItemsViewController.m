@@ -71,7 +71,16 @@
         [sender setTitle:@"Done" forState:UIControlStateNormal];
         [self.tableView setEditing:YES animated:YES];
     }
+}
 
+-(void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        BNRItem* item = [[[BNRItemStore sharedStore] allItems] objectAtIndex:indexPath.row];
+        [[BNRItemStore sharedStore] removeItem:item];
+
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath]
+                              withRowAnimation:UITableViewRowAnimationFade];
+    }
 }
 
 @end

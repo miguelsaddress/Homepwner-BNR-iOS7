@@ -49,4 +49,8 @@
     return self.privateItems;
 }
 
+-(void) removeItem: (BNRItem *) item {
+    [self.privateItems removeObjectIdenticalTo:item];
+}
+
 @end
