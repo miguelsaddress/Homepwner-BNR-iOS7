@@ -7,8 +7,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BNRDetailViewController">
             <connections>
                 <outlet property="dateLabel" destination="zGG-TE-Baf" id="vdt-a2-v2L"/>
+                <outlet property="imageView" destination="i6i-aq-PWx" id="r7N-fi-4g2"/>
                 <outlet property="nameField" destination="HfC-d3-WG2" id="bT0-pJ-97i"/>
                 <outlet property="serialField" destination="WMo-YL-XvK" id="e7V-fW-qbk"/>
+                <outlet property="toolBar" destination="yr9-9i-quN" id="Zox-SI-wt3"/>
                 <outlet property="valueField" destination="lk5-LP-rrB" id="mJb-gl-iyu"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -66,9 +68,23 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i6i-aq-PWx">
+                    <rect key="frame" x="23" y="299" width="329" height="287"/>
+                </imageView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yr9-9i-quN">
+                    <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                    <items>
+                        <barButtonItem title="Item" systemItem="camera" id="Mge-yP-HFs">
+                            <connections>
+                                <action selector="takePhoto:" destination="-1" id="c3m-wB-2YU"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
         </view>
     </objects>
