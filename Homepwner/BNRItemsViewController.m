@@ -121,5 +121,13 @@
     }
 }
 
+-(NSIndexPath*) tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath {
+    if(proposedDestinationIndexPath.section == 1) {
+        return sourceIndexPath;
+    }else{
+        return proposedDestinationIndexPath;
+    }
+}
+
 
 @end
