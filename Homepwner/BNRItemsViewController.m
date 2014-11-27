@@ -29,6 +29,7 @@
                                                                              target:self
                                                                              action:@selector(addItem:)];
         self.navigationItem.rightBarButtonItem = bbi;
+        //2.editing button
         self.navigationItem.leftBarButtonItem = self.editButtonItem;
     }
     return self;
