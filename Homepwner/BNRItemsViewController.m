@@ -20,6 +20,9 @@
 //designated initializer
 -(instancetype) init {
     self = [super initWithStyle:UITableViewStylePlain];
+    if(self){
+        self.navigationItem.title = @"Homepwner";
+    }
     return self;
 }
 
@@ -33,6 +36,7 @@
            forCellReuseIdentifier:@"UITableViewCell"];
     self.tableView.tableHeaderView = self.headerView;
 }
+
 -(void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.tableView reloadData];
