@@ -22,6 +22,14 @@
     self = [super initWithStyle:UITableViewStylePlain];
     if(self){
         self.navigationItem.title = @"Homepwner";
+        
+        //setting the buttons.
+        //1. add item button
+        UIBarButtonItem *bbi = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                                             target:self
+                                                                             action:@selector(addItem:)];
+        self.navigationItem.rightBarButtonItem = bbi;
+        self.navigationItem.leftBarButtonItem = self.editButtonItem;
     }
     return self;
 }
