@@ -24,7 +24,6 @@
     self.valueField.keyboardType = UIKeyboardTypeDecimalPad;
 }
 
-
 -(void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.nameField.text = self.item.itemName;
@@ -55,6 +54,11 @@
 -(void) setItem:(BNRItem *)item {
     _item = item;
     self.navigationItem.title = item.itemName;
+}
+
+
+-(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
 }
 
 @end
