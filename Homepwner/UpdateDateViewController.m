@@ -18,6 +18,7 @@
 -(void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.datePicker.date = self.item.dateCreated;
+    self.navigationItem.title = @"Change date";
 }
 
 -(void) viewWillDisappear:(BOOL)animated{
