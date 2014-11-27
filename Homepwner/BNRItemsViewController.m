@@ -7,6 +7,7 @@
 //
 
 #import "BNRItemsViewController.h"
+#import "BNRDetailViewController.h"
 #import "BNRItemStore.h"
 #import "BNRItem.h"
 
@@ -32,10 +33,15 @@
            forCellReuseIdentifier:@"UITableViewCell"];
     self.tableView.tableHeaderView = self.headerView;
 }
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+}
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [[[BNRItemStore sharedStore] allItems] count];
 }
+
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
 
@@ -47,9 +53,7 @@
 
 -(UIView*) headerView {
     if(!_headerView){
-       [[NSBundle mainBundle] loadNibNamed:@"HeaderView"
-                                      owner:self
-                                    options:nil];
+       [[NSBundle mainBundle] loadNibNamed:@"HeaderView" owner:self options:nil];
     }
     
     return _headerView;
@@ -84,6 +88,13 @@
 
 -(void) tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
     [[BNRItemStore sharedStore] moveItemAtIndex:sourceIndexPath.row toIndex:destinationIndexPath.row];
+}
+
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    BNRItem *item = [[[BNRItemStore sharedStore] allItems] objectAtIndex:indexPath.row];
+    BNRDetailViewController *detailVC = [[BNRDetailViewController alloc] init];
+    detailVC.item = item;
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 @end
