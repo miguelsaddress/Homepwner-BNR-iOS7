@@ -7,6 +7,7 @@
 //
 
 #import "BNRDetailViewController.h"
+#import "UpdateDateViewController.h"
 #import "BNRItem.h"
 
 @interface BNRDetailViewController ()
@@ -26,9 +27,10 @@
 
 -(void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.nameField.text = self.item.itemName;
-    self.serialField.text = self.item.serialNumber;
-    self.valueField.text = [NSString stringWithFormat: @"%d", self.item.valueInDollars];
+    BNRItem* item = self.item;
+    self.nameField.text = item.itemName;
+    self.serialField.text = item.serialNumber;
+    self.valueField.text = [NSString stringWithFormat: @"%d", item.valueInDollars];
     
     static NSDateFormatter *formatter = nil;
     if (!formatter){
@@ -36,8 +38,9 @@
         formatter.dateStyle = NSDateFormatterMediumStyle;
         formatter.timeStyle = NSDateFormatterNoStyle;
     }
-    
-    self.dateLabel.text = [formatter stringFromDate:self.item.dateCreated];
+    NSLog(@"DATE: %@", item.dateCreated);
+
+    self.dateLabel.text = [formatter stringFromDate:item.dateCreated];
 }
 
 -(void) viewWillDisappear:(BOOL)animated {
@@ -59,6 +62,12 @@
 
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];
+}
+
+- (IBAction)changeDateButtonTapped:(id)sender {
+    UpdateDateViewController *updateDateVC = [[UpdateDateViewController alloc] init];
+    updateDateVC.item = self.item;
+    [self.navigationController pushViewController:updateDateVC animated:YES];
 }
 
 @end
