@@ -12,7 +12,7 @@
 #import "BNRItem.h"
 
 @interface BNRItemsViewController()
-@property(nonatomic, strong) IBOutlet UIView *headerView;
+
 @end
 
 @implementation BNRItemsViewController
@@ -43,7 +43,6 @@
     [super viewDidLoad];
     [self.tableView registerClass:[UITableViewCell class]
            forCellReuseIdentifier:@"UITableViewCell"];
-    self.tableView.tableHeaderView = self.headerView;
 }
 
 -(void) viewWillAppear:(BOOL)animated {
@@ -64,30 +63,13 @@
     return cell;
 }
 
--(UIView*) headerView {
-    if(!_headerView){
-       [[NSBundle mainBundle] loadNibNamed:@"HeaderView" owner:self options:nil];
-    }
-    
-    return _headerView;
-}
-
--(IBAction)addItem:(id)sender{
+-(void)addItem:(id)sender{
     BNRItem* item = [[BNRItemStore sharedStore] createItem];
     NSInteger lastRowIndex = [[[BNRItemStore sharedStore] allItems] indexOfObject:item];
     NSIndexPath* indexPath = [NSIndexPath indexPathForItem:lastRowIndex inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
 }
 
--(IBAction)toggleEditingMode:(UIButton*)sender {
-    if(self.tableView.isEditing){
-        [sender setTitle:@"Edit" forState:UIControlStateNormal];
-        [self.tableView setEditing:NO animated:YES];
-    }else{
-        [sender setTitle:@"Done" forState:UIControlStateNormal];
-        [self.tableView setEditing:YES animated:YES];
-    }
-}
 
 -(void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
