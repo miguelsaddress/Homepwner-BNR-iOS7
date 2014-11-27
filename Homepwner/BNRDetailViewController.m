@@ -20,6 +20,11 @@
 
 @implementation BNRDetailViewController
 
+-(void) viewDidLoad {
+    self.valueField.keyboardType = UIKeyboardTypeDecimalPad;
+}
+
+
 -(void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.nameField.text = self.item.itemName;
