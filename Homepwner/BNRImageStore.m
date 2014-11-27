@@ -40,11 +40,11 @@
 }
 
 -(void) setImage:(UIImage*) image forKey: (NSString*) key{
-    [self.allImages setObject:image forKey:key];
+    self.allImages[key] = image;
 }
 
 -(UIImage*) imageForKey:(NSString*) key {
-    return [self.allImages objectForKey:key];
+    return self.allImages[key];
 }
 
 -(void) deleteImageForKey:(NSString*) key{
