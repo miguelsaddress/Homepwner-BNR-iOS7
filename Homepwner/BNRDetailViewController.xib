@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BNRDetailViewController">
             <connections>
                 <outlet property="dateLabel" destination="zGG-TE-Baf" id="vdt-a2-v2L"/>
+                <outlet property="deleteImageButton" destination="9gh-ja-qGn" id="6qw-3N-pFv"/>
                 <outlet property="imageView" destination="i6i-aq-PWx" id="r7N-fi-4g2"/>
                 <outlet property="nameField" destination="HfC-d3-WG2" id="bT0-pJ-97i"/>
                 <outlet property="serialField" destination="WMo-YL-XvK" id="e7V-fW-qbk"/>
@@ -69,7 +70,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i6i-aq-PWx">
-                    <rect key="frame" x="23" y="299" width="329" height="287"/>
+                    <rect key="frame" x="23" y="264" width="329" height="283"/>
                 </imageView>
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yr9-9i-quN">
                     <rect key="frame" x="0.0" y="623" width="375" height="44"/>
@@ -81,6 +82,15 @@
                         </barButtonItem>
                     </items>
                 </toolbar>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9gh-ja-qGn">
+                    <rect key="frame" x="30" y="555" width="91" height="30"/>
+                    <state key="normal" title="Delete Image">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="deleteImageButtonTapped:" destination="-1" eventType="touchUpInside" id="8qL-y5-6u6"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>

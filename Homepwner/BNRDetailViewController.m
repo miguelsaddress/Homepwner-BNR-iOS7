@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
+@property (weak, nonatomic) IBOutlet UIButton *deleteImageButton;
 
 @end
 
@@ -39,7 +40,13 @@
     self.dateLabel.text = [formatter stringFromDate:self.item.dateCreated];
 
     NSString *imageKey = self.item.itemKey;
-    self.imageView.image = [[BNRImageStore sharedStore] imageForKey:imageKey];
+    UIImage *image = [[BNRImageStore sharedStore] imageForKey:imageKey];
+    self.deleteImageButton.hidden = YES;
+    if(image){
+        self.imageView.image = image;
+        self.deleteImageButton.hidden = NO;
+    }
+
 }
 
 -(void) viewWillDisappear:(BOOL)animated {
@@ -93,5 +100,11 @@
     [self.view endEditing:YES];
 }
 
+- (IBAction)deleteImageButtonTapped:(id)sender {
+    NSString* imageKey = self.item.itemKey;
+    [[BNRImageStore sharedStore] deleteImageForKey:imageKey];
+    self.imageView.image = nil;
+    self.deleteImageButton.hidden = YES;
+}
 
 @end
