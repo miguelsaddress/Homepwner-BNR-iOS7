@@ -66,12 +66,18 @@
         imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
     imagePicker.delegate = self;
+    imagePicker.allowsEditing = YES;
     [self.navigationController presentViewController:imagePicker animated:YES completion:nil];
 }
 
 -(void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     NSLog(@"%@", info);
-    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    UIImage *image = info[UIImagePickerControllerEditedImage];
+    if(!image){
+        //not an edited image
+        image = info[UIImagePickerControllerOriginalImage];
+    }
+
     self.imageView.image = image;
     [[BNRImageStore sharedStore] setImage:image forKey: self.item.itemKey];
     [self dismissViewControllerAnimated:YES completion:nil];
