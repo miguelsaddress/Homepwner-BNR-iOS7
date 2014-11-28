@@ -21,6 +21,7 @@
         
         //Setting the dateCreated to the current date and time
         _dateCreated = [[NSDate alloc] init];
+        _itemKey = [[[NSUUID alloc] init] UUIDString];
     }
     return self;
 }
@@ -68,9 +69,10 @@
 
 -(NSString*) description
 {
-    NSString *descriptionString = [NSString stringWithFormat:@"%@ (%@): Worth $%d, recorded on %@",
+    NSString *descriptionString = [NSString stringWithFormat:@"%@ (%@) - [key: %@]: Worth $%d, recorded on %@",
                                    self.itemName,
                                    self.serialNumber,
+                                   self.itemKey,
                                    self.valueInDollars,
                                    self.dateCreated];
     return descriptionString;
